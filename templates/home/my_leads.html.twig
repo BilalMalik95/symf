@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+        <div class="page-wrapper">
+                <div class="content container-fluid">
+				
+					<!-- Page Header -->
+					<div class="page-header">
+						<div class="row">
+							<div class="col-sm-12">
+								<h3 class="page-title">List of Leads</h3>
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+									<li class="breadcrumb-item active">Leads</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /Page Header -->
+					
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card">
+								<div class="card-body">
+								 
+									<div class="table-responsive">
+										<table class="datatable table table-hover table-center mb-0">
+											<thead>
+												<tr>
+													<th>Lead Name</th>
+													<th>Lead company</th>
+													<th>Lead domain</th>
+													<th class="text-center">Broadcasted Status</th>
+													<th>   Action</th>
+													
+												</tr>
+											</thead>
+											<tbody>
+										 
+											{% for   d in data %}
+											{% if   d.LeadBroadcastStatus == '1' %}
+
+
+											{% set checked =  'checked' %}
+											{% else %}
+												{% set checked =  '' %}
+ {% endif %}
+
+												<tr>
+												 
+													<td>   {{d.LeadName}}</td>
+													<td>   {{d.LeadCompany}}</td>
+													<td>   {{d.LeadDomain}}</td>
+																										
+													 
+													
+													<td>
+														<div class="status-toggle d-flex justify-content-center">
+															<input type="checkbox" id=" " class="check"  {{checked}}>
+															<label for="status_1{{d.Id}}" class="checktoggle">checkbox</label>
+														</div>
+													</td>
+														<td class="text-end">
+														<div class="actions">
+															<a   href="{{ path('update_lead', { 'id': d.Id }) }}" class="btn btn-sm bg-success-light me-2">
+																<i class="fe fe-pencil"></i> Edit
+															</a>
+															<a class="btn btn-sm bg-danger-light"   href="{{ path('delete_lead', { 'id': d.Id })}}">
+																<i class="fe fe-trash"></i> Delete
+															</a>
+														</div>
+													</td>
+													
+												</tr>
+												 {% endfor %}
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>			
+					</div>
+					
+				</div>			
+			</div>
+{% endblock %}
+ 

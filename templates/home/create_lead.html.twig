@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    <div class="main-wrapper">
+		
+			 
+			
+			<!-- Page Wrapper -->
+            <div class="page-wrapper">
+			
+               	      <div class="content container-fluid">
+				
+					<!-- Page Header -->
+					<div class="page-header">
+						<div class="row">
+							<div class="col-sm-12">
+								<h3 class="page-title">Add Lead</h3>
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+									<li class="breadcrumb-item active">Add Lead</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /Page Header -->
+					
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card">
+								<div class="card-body">
+
+									<!-- Add details -->
+									<div class="row">
+{% if status is   not empty %}
+
+									  <h1>  {{ status }}! ✅</h1>
+{% endif %}
+
+										<div class="col-12 blog-details">
+											<form action="{{ path('insert_lead')}}"  method="post">
+					                            
+					                        
+					                            <div class="row">
+												   <div class="col-md-6">
+												  <div class="form-group">
+					                                <label>Lead Name</label>
+					                                <input class="form-control" type="text" name="name">
+					                            </div>
+					                            </div>
+												   <div class="col-md-6">
+												  <div class="form-group">
+					                                <label>Lead Company</label>
+					                                <input class="form-control" name="company" type="text">
+					                            </div>
+					                            </div>
+					                                <div class="col-md-12">
+					                                    <div class="form-group">
+					                                        <label>Lead Domain</label>
+					                                        <select name="domain" class="select select2-hidden-accessible form-control" tabindex="-1" aria-hidden="true">
+					                                            <option>Web Design</option>
+					                                            <option>Web Development</option>
+					                                            <option>App Development</option>
+					                                        </select>
+					                                    </div>
+					                                </div>
+					                                 
+					                            </div>
+					                             <div class="col-md-6">
+					                            <div class="form-group">
+					                                <label class=" ">Lead Status</label>
+													<div>
+														<div class="form-check form-radio form-check-inline">
+															<input class="form-check-input" id="active" name="Lead_broadcast_status" value="1" type="radio" checked="">
+															<label class="form-check-label" for="active">Active</label>
+														</div>
+														<div class="form-check form-radio form-check-inline">
+															<input class="form-check-input" id="inactive" name="Lead_broadcast_status" value="0" type="radio">
+															<label class="form-check-label" for="inactive">Inactive</label>
+														</div>
+													</div>
+					                            </div>
+					                            </div>
+					                            <div class="m-t-20 text-center">
+					                                <button class="btn btn-primary btn-lg">Add Lead</button>
+					                            </div>
+					                        </form>
+										</div>
+									</div>
+									<!-- /Add details -->
+
+								</div>
+							</div>
+						</div>			
+					</div>
+					
+				</div>	
+			</div>
+			<!-- /Page Wrapper -->
+		
+        </div>
+{% endblock %}
+ 
